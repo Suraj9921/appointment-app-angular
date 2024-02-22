@@ -35,8 +35,11 @@ export class AppointmentListComponent implements OnInit{
     }
   }
 
-  deleteAppointment(index : number) {
-    this.appointments.splice(index,1);
-    localStorage.setItem("appointment",JSON.stringify(this.appointments));
-  }
+  deleteAppointment(index: number) {
+    const confirmation = confirm("Are you sure you want to delete the appointment?");
+    if (confirmation) {
+        this.appointments.splice(index, 1);
+        localStorage.setItem("appointment", JSON.stringify(this.appointments));
+    }
+}
 }
